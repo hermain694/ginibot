@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+  <category>
+    <pattern>hi</pattern>
+    <template>hello there and welcome to Medical Assistant Bot! whats your name?</template>
+  </category>
+  
+  <category>
+      <pattern>my name is * *</pattern>
+      <template>how are u <set name="firstname"><star/></set>.....my services is to book an appointment for u 
+      <reply>
+          <text>yes</text>
+         <postback>chooseyes</postback>
+     </reply>
+     
+      <reply>
+          <text>no</text>
+         <postback>chooeno</postback>
+     </reply>
+      </template>
+  </category>
+  
+  <category>
+      <pattern>im fine</pattern>
+      <template>good to know <get name="firstname"/></template>
+  </category>
+  <category>
+      <pattern>how are u *</pattern>
+      <template><star index="1"/> is also fine</template>
+  </category>
+
+  <category>
+      <pattern>chooseyes</pattern>
+      <template>
+          please choose a hospital
+          <button>
+              <text>agha khan hospital</text>
+              <postback>agha khan</postback>
+          </button>
+          
+      </template>
+  </category>
+  
+  
+  <category>
+      <pattern>agha khan</pattern>
+      <template>
+      <button>
+              <text>cardiologist</text>
+              <postback>cardio</postback>
+          </button>
+          <button>
+              <text>general physician</text>
+              <postback>gp</postback>
+          </button>
+          <button>
+              <text>corona virus testing</text>
+              <postback>covid19</postback>
+          </button>
+          <button>
+              <text>ent specialist</text>
+              <postback>ent</postback>
+          </button>
+          <button>
+              <text>orthologist</text>
+              <postback>ortho</postback>
+          </button>
+          <button>
+              <text>dentist</text>
+              <postback>dentist</postback>
+          </button><button>
+              <text>gynaecologist</text>
+              <postback>gyni</postback>
+          </button>
+      plase select number from the above category
+      </template>
+  </category>
+  
+  
+ <category>
+     <pattern>cardio</pattern>
+     <template>
+         Choose days......
+     monday at 5pm-7pm
+           <reply>
+          <text>book my appointment</text>
+         <postback>book_appointment_on_monday</postback>
+     </reply>
+     </template>
+ </category>
+ 
+ 
+ <category>
+     <pattern>book_appointment_on_monday</pattern>
+     <template>thank you :)</template>
+ </category>
+ 
+</aiml>
